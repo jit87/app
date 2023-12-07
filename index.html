@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" ng-app="ListaCompra">
+  <head>
+    <title>Lista de la compra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+     body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+
+    button {
+      padding: 7px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .btn-add {
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .btn-print {
+      width: 100%;
+      border-radius: 5px;
+      font-size: 1em;
+      margin-top: 20px;
+    }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="ListaCompraController">
+
+      <h2>Lista de la compra</h2>
+        
+      <ul>
+        <li ng-repeat="item in listaCompra"> - {{item.nombre | uppercase}}  {{item.cantidad}}</li>
+      </ul>
+
+      <hr>
+      <input type="text" ng-model="nuevoItemNombre" placeholder="Nombre">
+      <input type="text" ng-model="nuevoItemCantidad" placeholder="Cantidad">
+      <button type="button"  ng-click="add()" class="printbutton" class="btn"> Añadir producto </button>
+      <br>
+      <br>
+      <button type="button"  ng-click="print()" class="printbutton" class="btn"> Imprimir </button>
+      <button type="button"  ng-click="delete()" class="deletebutton" class="btn"> Eliminar anterior </button>
+
+
+    </div>
+
+
+    <script src="angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
